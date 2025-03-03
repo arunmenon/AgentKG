@@ -1,0 +1,239 @@
+{
+  "domain": {
+    "name": "Research and Development",
+    "description": "The Research and Development domain focuses on the systematic investigation and study to develop new products, improve existing products, and innovate processes."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Idea Generation",
+      "description": "The process of generating new ideas for products, services, or improvements.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Market Research",
+          "description": "Conducting research to understand market needs and trends.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Customer Surveys",
+              "description": "Collecting feedback from potential customers.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Competitive Analysis",
+              "description": "Analyzing the strengths and weaknesses of competitors.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Brainstorming Sessions",
+          "description": "Organizing sessions to generate creative ideas.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Facilitated Workshops",
+              "description": "Structured sessions guided by facilitators.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Idea Evaluation",
+              "description": "Assessing ideas for feasibility and potential.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Innovation Network",
+          "description": "Engaging with external networks to foster innovation.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Partnership Development",
+              "description": "Building partnerships with other organizations.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Technology Scouting",
+              "description": "Identifying emerging technologies and trends.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Product Development",
+      "description": "The process of designing, creating, and testing new products.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Concept Development",
+          "description": "Developing a detailed product concept.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Prototyping",
+              "description": "Creating a preliminary model of the product.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Design Specifications",
+              "description": "Defining technical specifications and requirements.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Testing and Validation",
+          "description": "Testing the product to ensure it meets requirements.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Quality Assurance",
+              "description": "Ensuring the product meets quality standards.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "User Testing",
+              "description": "Gathering feedback from end-users.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Launch Planning",
+          "description": "Preparing for the product launch.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Market Strategy",
+              "description": "Developing a strategy to introduce the product to the market.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Supply Chain Coordination",
+              "description": "Ensuring all logistical aspects are in place for launch.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Post-Launch Review",
+      "description": "Evaluating the product's performance and capturing lessons learned.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Performance Analysis",
+          "description": "Analyzing product performance data.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Sales Analysis",
+              "description": "Reviewing sales data for insights.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Customer Feedback",
+              "description": "Collecting and analyzing feedback from customers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Impact Assessment",
+          "description": "Assessing the impact of the product on the market.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Market Share Analysis",
+              "description": "Determining the product's market share.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Competitive Positioning",
+              "description": "Evaluating the product's position relative to competitors.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Continuous Improvement",
+          "description": "Identifying areas for future improvement.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Lessons Learned",
+              "description": "Documenting key learnings from the project.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Process Adjustments",
+              "description": "Refining processes based on review outcomes.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Market research informs the concept development by providing insights into customer needs."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-002-002",
+      "description": "Ideas generated during brainstorming sessions guide the testing and validation process."
+    },
+    {
+      "source": "PROC-002-003",
+      "target": "PROC-003-001",
+      "description": "Launch planning influences the performance analysis by setting initial expectations and metrics."
+    },
+    {
+      "source": "PROC-002-002-001",
+      "target": "PROC-003-003-002",
+      "description": "Quality assurance findings can lead to process adjustments for continuous improvement."
+    },
+    {
+      "source": "PROC-003-001-002",
+      "target": "PROC-001-001",
+      "description": "Customer feedback from post-launch review can guide future market research efforts."
+    }
+  ]
+}

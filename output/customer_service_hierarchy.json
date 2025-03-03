@@ -1,0 +1,239 @@
+{
+  "domain": {
+    "name": "Customer Service",
+    "description": "The Customer Service domain focuses on optimizing interactions between the business and its customers, ensuring customer satisfaction, retention, and loyalty."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Customer Inquiry Management",
+      "description": "Handling customer inquiries efficiently to provide timely and accurate responses.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Inquiry Reception",
+          "description": "Process of receiving customer inquiries through various channels.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Email Inquiry Reception",
+              "description": "Receiving and logging inquiries submitted via email.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Phone Inquiry Reception",
+              "description": "Receiving and logging inquiries submitted via phone calls.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Inquiry Categorization",
+          "description": "Sorting and categorizing inquiries based on type and urgency.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Urgency Assessment",
+              "description": "Assessing the urgency of the inquiry for prioritization.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Type Classification",
+              "description": "Classifying inquiries into predefined categories.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Response Delivery",
+          "description": "Providing responses to customer inquiries.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Response Drafting",
+              "description": "Creating responses tailored to customer inquiries.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Response Dispatch",
+              "description": "Delivering responses through appropriate channels.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Customer Feedback Management",
+      "description": "Collecting, analyzing, and responding to customer feedback to improve service quality.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Feedback Collection",
+          "description": "Gathering feedback from customers through various methods.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Survey Deployment",
+              "description": "Deploying surveys to collect structured feedback.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Direct Feedback Capture",
+              "description": "Obtaining feedback directly from customer interactions.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Feedback Analysis",
+          "description": "Analyzing feedback data to identify trends and areas for improvement.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Sentiment Analysis",
+              "description": "Using techniques to determine the sentiment of customer feedback.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Feedback Categorization",
+              "description": "Sorting feedback into categories for easier analysis.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Feedback Response",
+          "description": "Responding to customer feedback to acknowledge and address concerns.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Acknowledgment Dispatch",
+              "description": "Sending acknowledgment messages to customers.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Resolution Communication",
+              "description": "Communicating resolutions or actions taken based on feedback.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Customer Complaint Resolution",
+      "description": "Managing and resolving customer complaints effectively to restore satisfaction.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Complaint Logging",
+          "description": "Documenting customer complaints for tracking and resolution.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Complaint Reception",
+              "description": "Receiving complaints through various channels.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Complaint Registration",
+              "description": "Registering complaints in the system for tracking.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Complaint Investigation",
+          "description": "Investigating the root cause of complaints to determine resolutions.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Issue Analysis",
+              "description": "Analyzing the complaint to understand the underlying issue.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Resolution Proposal",
+              "description": "Proposing potential solutions to address the complaint.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Complaint Resolution",
+          "description": "Implementing solutions to resolve complaints and prevent recurrence.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Solution Implementation",
+              "description": "Executing the proposed solution to resolve the complaint.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Follow-up Communication",
+              "description": "Communicating resolution to the customer and following up.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Feedback from inquiries informs the feedback collection process."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-002",
+      "description": "Analysis of feedback can help identify common complaint areas for investigation."
+    },
+    {
+      "source": "PROC-001-003",
+      "target": "PROC-003-003",
+      "description": "Resolution of inquiries may require escalation to complaint resolution processes."
+    },
+    {
+      "source": "PROC-003-001",
+      "target": "PROC-001-002",
+      "description": "Logged complaints can be categorized similarly to inquiries for streamlined handling."
+    },
+    {
+      "source": "PROC-002-003",
+      "target": "PROC-001-003",
+      "description": "Responses to feedback can guide improvements in inquiry response processes."
+    }
+  ]
+}

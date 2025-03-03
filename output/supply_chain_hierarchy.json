@@ -1,0 +1,179 @@
+{
+  "domain": {
+    "name": "Supply Chain",
+    "description": "The Supply Chain domain encompasses all activities involved in sourcing, procurement, production, and logistics of goods and services."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Sourcing and Procurement",
+      "description": "This process involves identifying and acquiring the goods and services that a company needs.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Supplier Identification",
+          "description": "Identify potential suppliers and evaluate their capabilities.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Market Research",
+              "description": "Conduct research to identify potential suppliers.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Supplier Evaluation",
+              "description": "Assess supplier performance and reliability.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Contract Negotiation",
+          "description": "Negotiate terms and conditions with suppliers.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Terms Definition",
+              "description": "Define contract terms, including pricing and delivery schedules.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Agreement Finalization",
+              "description": "Finalize and sign the contract with selected suppliers.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Production Planning",
+      "description": "This process involves planning and scheduling the production of goods.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Demand Forecasting",
+          "description": "Predict future product demand to inform production planning.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Data Collection",
+              "description": "Gather historical sales data and market trends.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Forecast Analysis",
+              "description": "Analyze data to predict future demand patterns.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Capacity Planning",
+          "description": "Determine the resources required to meet production goals.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Resource Assessment",
+              "description": "Evaluate current production capacity and identify gaps.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Resource Allocation",
+              "description": "Allocate resources to meet production demands.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Inventory Management",
+      "description": "This process manages the storage and flow of goods within a company.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Stock Monitoring",
+          "description": "Track inventory levels and movements.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Inventory Tracking",
+              "description": "Maintain records of inventory levels and locations.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Reorder Level Analysis",
+              "description": "Determine optimal reorder points to maintain stock levels.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Warehouse Management",
+          "description": "Manage the storage of goods within warehouses.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Space Optimization",
+              "description": "Optimize storage space for efficiency.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Inventory Retrieval",
+              "description": "Efficiently retrieve items for order fulfillment.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Supplier identification informs demand forecasting by ensuring availability of materials."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-003-001",
+      "description": "Contract negotiation impacts stock monitoring by determining supply schedules."
+    },
+    {
+      "source": "PROC-002-001",
+      "target": "PROC-002-002",
+      "description": "Demand forecasting is crucial for accurate capacity planning."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-002",
+      "description": "Capacity planning influences warehouse management by determining storage needs."
+    },
+    {
+      "source": "PROC-003-001",
+      "target": "PROC-003-002",
+      "description": "Stock monitoring directly affects warehouse management by indicating storage requirements."
+    }
+  ]
+}

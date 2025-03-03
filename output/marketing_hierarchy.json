@@ -1,0 +1,239 @@
+{
+  "domain": {
+    "name": "Marketing",
+    "description": "The Marketing domain encompasses all processes related to promoting, selling, and distributing a product or service. It involves understanding customer needs, creating value, and communicating effectively to drive business growth."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Market Research",
+      "description": "The process of gathering, analyzing, and interpreting information about a market, including information about the target market, customers, and competitors.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Customer Analysis",
+          "description": "Identifying and understanding customer needs, preferences, and behaviors.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Surveys and Questionnaires",
+              "description": "Designing and conducting surveys to gather customer feedback.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Focus Groups",
+              "description": "Organizing focus group sessions to gather qualitative insights.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Competitor Analysis",
+          "description": "Assessing competitors to identify their strengths and weaknesses.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "SWOT Analysis",
+              "description": "Conducting SWOT analysis to evaluate competitor position.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Market Positioning",
+              "description": "Determining how competitors are positioned in the market.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Market Trend Analysis",
+          "description": "Identifying and analyzing current and future market trends.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Trend Monitoring",
+              "description": "Tracking market trends over time.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Data Interpretation",
+              "description": "Interpreting data to forecast future trends.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Marketing Strategy Development",
+      "description": "Developing strategies to effectively market a product or service to achieve organizational goals.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Target Market Segmentation",
+          "description": "Dividing a market into distinct groups of buyers with different needs or behaviors.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Demographic Segmentation",
+              "description": "Segmenting the market based on demographic factors.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Psychographic Segmentation",
+              "description": "Segmenting the market based on lifestyle and personality traits.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Value Proposition Design",
+          "description": "Creating a compelling value proposition that addresses the needs of the target market.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Unique Selling Proposition (USP) Development",
+              "description": "Identifying what makes the product or service unique.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Benefit Analysis",
+              "description": "Analyzing the benefits provided to the customers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Marketing Mix Planning",
+          "description": "Determining the right mix of product, price, place, and promotion strategies.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Product Strategy",
+              "description": "Defining product features and benefits.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Pricing Strategy",
+              "description": "Establishing pricing models and strategies.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Marketing Campaign Management",
+      "description": "Planning, executing, and monitoring marketing campaigns to promote products or services.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Campaign Planning",
+          "description": "Developing a campaign plan that outlines objectives, target audience, and tactics.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Objective Setting",
+              "description": "Defining clear and measurable campaign objectives.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Budget Allocation",
+              "description": "Allocating financial resources for the campaign.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Campaign Execution",
+          "description": "Implementing the campaign plan using various marketing channels.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Content Creation",
+              "description": "Developing marketing materials and content.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Channel Deployment",
+              "description": "Selecting and utilizing appropriate marketing channels.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Campaign Monitoring and Evaluation",
+          "description": "Tracking performance and assessing the effectiveness of marketing campaigns.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Performance Metrics",
+              "description": "Identifying and tracking key performance indicators (KPIs).",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Post-Campaign Review",
+              "description": "Analyzing campaign results and identifying areas for improvement.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Customer insights from analysis inform the segmentation strategies."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-002-002",
+      "description": "Competitor analysis helps in designing a compelling value proposition."
+    },
+    {
+      "source": "PROC-002-001",
+      "target": "PROC-003-001",
+      "description": "Target market segmentation guides the planning of marketing campaigns."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-002",
+      "description": "The value proposition influences the content and approach of campaign execution."
+    },
+    {
+      "source": "PROC-003-003",
+      "target": "PROC-001-003",
+      "description": "Campaign performance data is used to analyze and adapt to market trends."
+    }
+  ]
+}

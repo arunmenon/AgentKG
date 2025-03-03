@@ -1,0 +1,295 @@
+{
+  "domain": {
+    "name": "Manufacturing",
+    "description": "The Manufacturing domain encompasses the processes involved in converting raw materials into finished products through various stages, including design, fabrication, and assembly. It integrates supply chain management, production, quality control, and distribution."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Product Design and Development",
+      "description": "This process involves designing new products and developing detailed specifications for production.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Conceptual Design",
+          "description": "Creating initial concepts and designs for new products.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Market Research",
+              "description": "Conducting research to identify market needs and trends.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Idea Generation",
+              "description": "Generating ideas based on market research and feasibility studies.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Detailed Design",
+          "description": "Developing detailed designs and specifications for production.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "CAD Modeling",
+              "description": "Creating detailed 3D models using CAD software.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Prototyping",
+              "description": "Building prototypes to test and refine designs.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Testing and Validation",
+          "description": "Testing designs to ensure they meet specifications and performance criteria.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Functional Testing",
+              "description": "Testing the product to ensure it functions as intended.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Compliance Testing",
+              "description": "Ensuring the product complies with relevant standards and regulations.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Procurement and Supply Chain Management",
+      "description": "Managing the acquisition of raw materials and components necessary for production.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Supplier Selection",
+          "description": "Identifying and selecting suppliers for raw materials and components.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Supplier Evaluation",
+              "description": "Assessing suppliers based on quality, cost, and reliability.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Contract Negotiation",
+              "description": "Negotiating terms and agreements with selected suppliers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Inventory Management",
+          "description": "Managing inventory levels to ensure availability of materials.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Stock Monitoring",
+              "description": "Keeping track of inventory levels and movements.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Reorder Management",
+              "description": "Determining when to reorder materials and components.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Production and Operations",
+      "description": "The core process of converting raw materials into finished products.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Production Planning",
+          "description": "Planning the production schedules and resource allocation.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Capacity Planning",
+              "description": "Determining the production capacity needed to meet demand.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Scheduling",
+              "description": "Scheduling production runs and shifts.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Manufacturing",
+          "description": "Executing the production processes to manufacture products.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Assembly",
+              "description": "Assembling components into finished products.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Quality Assurance",
+              "description": "Ensuring products meet quality standards.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-004",
+      "name": "Quality Management",
+      "description": "Processes to ensure the quality and reliability of manufactured products.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-004-001",
+          "name": "Quality Control",
+          "description": "Inspecting products to ensure they meet quality standards.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-004-001-001",
+              "name": "Inspection",
+              "description": "Inspecting products during and after production.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-004-001-002",
+              "name": "Defect Analysis",
+              "description": "Identifying and analyzing defects to prevent future occurrences.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-004-002",
+          "name": "Continuous Improvement",
+          "description": "Implementing processes to continually improve product quality.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-004-002-001",
+              "name": "Process Optimization",
+              "description": "Improving manufacturing processes for efficiency and quality.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-004-002-002",
+              "name": "Feedback Loop",
+              "description": "Gathering feedback to drive improvements.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-005",
+      "name": "Distribution and Logistics",
+      "description": "Managing the distribution of finished products to customers.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-005-001",
+          "name": "Order Fulfillment",
+          "description": "Processing and fulfilling customer orders.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-005-001-001",
+              "name": "Order Processing",
+              "description": "Processing customer orders and preparing for shipment.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-005-001-002",
+              "name": "Shipping",
+              "description": "Handling the logistics of shipping products to customers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-005-002",
+          "name": "Inventory Distribution",
+          "description": "Managing the distribution of inventory across distribution centers.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-005-002-001",
+              "name": "Warehouse Management",
+              "description": "Managing warehouses to optimize storage and retrieval.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-005-002-002",
+              "name": "Transportation Management",
+              "description": "Coordinating transportation to ensure timely delivery.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Conceptual designs often require specific materials which influence supplier selection."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-001",
+      "description": "Efficient inventory management is crucial for effective production planning."
+    },
+    {
+      "source": "PROC-003-002",
+      "target": "PROC-004-001",
+      "description": "The manufacturing process must feed into quality control to ensure standards are met."
+    },
+    {
+      "source": "PROC-004-002",
+      "target": "PROC-003-001",
+      "description": "Continuous improvement feedback can affect future production planning."
+    },
+    {
+      "source": "PROC-005-001",
+      "target": "PROC-002-002",
+      "description": "Order fulfillment processes require accurate inventory levels to ensure availability."
+    }
+  ]
+}

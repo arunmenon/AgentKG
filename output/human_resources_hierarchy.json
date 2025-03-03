@@ -1,0 +1,179 @@
+{
+  "domain": {
+    "name": "Human Resources",
+    "description": "The Human Resources domain focuses on managing people within organizations, addressing recruitment, employee relations, compensation, benefits, training, and development."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Recruitment and Staffing",
+      "description": "The process of attracting, screening, and selecting qualified individuals for employment.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Job Posting and Advertising",
+          "description": "Creating and disseminating job advertisements to attract candidates.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Draft Job Descriptions",
+              "description": "Develop detailed job descriptions outlining roles and responsibilities.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Select Advertising Channels",
+              "description": "Choose appropriate platforms and channels for job postings.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Candidate Screening",
+          "description": "Assessing applications to identify suitable candidates.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Resume Review",
+              "description": "Examine resumes to shortlist candidates for interviews.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Preliminary Interviews",
+              "description": "Conduct initial interviews to evaluate candidate fit.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Employee Onboarding",
+      "description": "The process of integrating new employees into the organization.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Orientation",
+          "description": "Introduce new employees to the company culture and policies.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Welcome Session",
+              "description": "Conduct a session to welcome new hires.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Policy Training",
+              "description": "Educate new employees about company policies.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Documentation and Compliance",
+          "description": "Ensure all necessary paperwork and compliance requirements are completed.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Collect Personal Information",
+              "description": "Gather necessary personal data for HR records.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Set Up Payroll",
+              "description": "Establish payroll records for new employees.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Performance Management",
+      "description": "The process of ensuring employees meet organizational goals and objectives.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Goal Setting",
+          "description": "Establish performance goals for employees.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Define Objectives",
+              "description": "Outline specific objectives and key results.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Align with Company Goals",
+              "description": "Ensure individual goals align with organizational objectives.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Performance Evaluation",
+          "description": "Assess employee performance against goals.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Mid-Year Review",
+              "description": "Conduct a mid-year evaluation of performance.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Annual Review",
+              "description": "Complete a comprehensive end-of-year performance review.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-002-001",
+      "description": "Successful candidate screening leads to onboarding processes."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-001",
+      "description": "Completion of onboarding documentation is required for setting performance goals."
+    },
+    {
+      "source": "PROC-003-001-002",
+      "target": "PROC-003-002-001",
+      "description": "Alignment of goals is necessary for accurate performance evaluation."
+    },
+    {
+      "source": "PROC-002-001",
+      "target": "PROC-003-001",
+      "description": "Orientation influences the initial goal-setting process."
+    },
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-001-002",
+      "description": "Job posting and advertising must precede candidate screening."
+    }
+  ]
+}

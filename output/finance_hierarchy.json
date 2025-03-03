@@ -1,0 +1,239 @@
+{
+  "domain": {
+    "name": "Finance",
+    "description": "The Finance domain encompasses all processes related to managing, planning, and overseeing the financial activities of an organization."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Financial Planning",
+      "description": "Involves creating strategies for allocating financial resources to achieve organizational goals.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Budgeting",
+          "description": "Formulating a plan for the allocation of financial resources for different departments.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Budget Preparation",
+              "description": "Collecting financial data and preparing the budget draft.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Budget Approval",
+              "description": "Reviewing and approving the budget draft by upper management.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Forecasting",
+          "description": "Predicting future financial conditions based on historical data.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Data Analysis",
+              "description": "Analyzing historical financial data to identify trends.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Scenario Planning",
+              "description": "Developing financial scenarios based on different assumptions.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Resource Allocation",
+          "description": "Distributing available financial resources across various departments and projects.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Priority Setting",
+              "description": "Determining priorities for resource allocation.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Resource Tracking",
+              "description": "Monitoring the use of allocated resources.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Financial Reporting",
+      "description": "Includes processes for compiling financial statements and reports for internal and external stakeholders.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Financial Statement Preparation",
+          "description": "Preparing balance sheets, income statements, and cash flow statements.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Data Collection",
+              "description": "Gathering financial data needed for statements.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Statement Compilation",
+              "description": "Compiling and formatting financial statements.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Regulatory Compliance",
+          "description": "Ensuring all financial reporting adheres to legal and regulatory standards.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Standard Implementation",
+              "description": "Implementing financial reporting standards.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Audit Coordination",
+              "description": "Coordinating internal and external audits.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Management Reporting",
+          "description": "Creating reports for management to support decision-making processes.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Performance Analysis",
+              "description": "Analyzing financial performance against targets.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Variance Reporting",
+              "description": "Reporting discrepancies between planned and actual figures.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Treasury Management",
+      "description": "Managing the organization's liquidity, investments, and financial risk.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Cash Management",
+          "description": "Monitoring and managing cash flow and liquidity.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Cash Flow Forecasting",
+              "description": "Predicting future cash flow needs.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Liquidity Management",
+              "description": "Ensuring sufficient liquidity to meet obligations.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Investment Management",
+          "description": "Overseeing the organization's investment portfolio.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Portfolio Analysis",
+              "description": "Analyzing investment portfolio performance.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Risk Assessment",
+              "description": "Assessing and mitigating investment risks.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Financial Risk Management",
+          "description": "Identifying, analyzing, and mitigating financial risks.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Risk Identification",
+              "description": "Identifying potential financial risks.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Risk Mitigation",
+              "description": "Developing strategies to mitigate identified risks.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Budgeting provides the financial data necessary for accurate financial statement preparation."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-003-003",
+      "description": "Compliance with regulatory standards is crucial for effective financial risk management."
+    },
+    {
+      "source": "PROC-003-001",
+      "target": "PROC-001-003",
+      "description": "Effective cash management ensures that resource allocation decisions are based on current liquidity."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-003-002",
+      "description": "Forecasting provides insights that inform investment management strategies."
+    },
+    {
+      "source": "PROC-002-003",
+      "target": "PROC-001-002",
+      "description": "Management reporting can influence financial forecasting by highlighting areas of concern or opportunity."
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "domain": {
+    "name": "Information Technology",
+    "description": "Information Technology encompasses the use and management of computer-based systems to support business operations, decision making, and innovation."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "IT Infrastructure Management",
+      "description": "The process of managing and maintaining the foundational technology framework of an organization.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Network Management",
+          "description": "Overseeing network operations, including configuration, monitoring, and security.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Network Configuration",
+              "description": "Setting up and configuring network devices and services.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Network Security",
+              "description": "Implementing measures to protect the network from unauthorized access or attacks.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Server Management",
+          "description": "Managing server hardware and software to ensure availability and performance.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Server Deployment",
+              "description": "Installing and configuring server hardware and software.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Server Monitoring",
+              "description": "Continuously monitoring server performance and health.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Data Center Management",
+          "description": "Overseeing the physical and environmental management of data centers.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Environmental Control",
+              "description": "Managing temperature, humidity, and air quality in data centers.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Physical Security",
+              "description": "Ensuring the physical security of data center premises.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Software Development",
+      "description": "The process of designing, creating, testing, and maintaining software applications.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Requirements Analysis",
+          "description": "Gathering and analyzing user requirements for software development.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Stakeholder Interviews",
+              "description": "Conducting interviews to gather requirements from stakeholders.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Requirements Documentation",
+              "description": "Documenting and verifying software requirements.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Software Design",
+          "description": "Creating architectural and detailed software designs.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Architectural Design",
+              "description": "Designing the software architecture.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Component Design",
+              "description": "Designing individual software components.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Software Testing",
+          "description": "Executing tests to ensure software quality and functionality.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Unit Testing",
+              "description": "Testing individual software components.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Integration Testing",
+              "description": "Testing the integration of software components.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "IT Security Management",
+      "description": "Protecting information systems and ensuring data security.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Risk Assessment",
+          "description": "Identifying and evaluating risks to the IT infrastructure.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Threat Analysis",
+              "description": "Analyzing potential threats to IT systems.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Vulnerability Assessment",
+              "description": "Identifying weaknesses in IT systems.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Access Control",
+          "description": "Managing permissions and access to IT systems.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "User Authentication",
+              "description": "Verifying user identity before granting access.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Authorization Management",
+              "description": "Assigning and managing user permissions.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Incident Response",
+          "description": "Responding to and managing IT security incidents.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Incident Detection",
+              "description": "Identifying and reporting IT security incidents.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Incident Resolution",
+              "description": "Implementing measures to resolve IT security incidents.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Network Management must provide a stable network environment for effective Requirements Analysis."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-002-003",
+      "description": "Server Management ensures servers are ready for hosting applications that undergo Software Testing."
+    },
+    {
+      "source": "PROC-003-001",
+      "target": "PROC-001-002",
+      "description": "Risk Assessment must inform Server Management about vulnerabilities to address."
+    },
+    {
+      "source": "PROC-002-002",
+      "target": "PROC-002-003",
+      "description": "Software Design is a prerequisite for executing Software Testing."
+    },
+    {
+      "source": "PROC-003-003",
+      "target": "PROC-001-001",
+      "description": "Incident Response actions might require adjustments in Network Management configurations."
+    }
+  ]
+}

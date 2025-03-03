@@ -1,0 +1,245 @@
+{
+  "domain": {
+    "name": "Retail",
+    "description": "The Retail domain encompasses all activities related to selling goods and services directly to consumers. It involves managing inventory, sales, customer service, and operations to ensure a smooth transaction experience."
+  },
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Sales Management",
+      "description": "The process of managing the sale of goods and services to customers.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-001-001",
+          "name": "Order Processing",
+          "description": "Handling and processing customer orders efficiently.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-001-001",
+              "name": "Order Entry",
+              "description": "Entering customer orders into the system.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-002",
+              "name": "Order Verification",
+              "description": "Verifying the accuracy and availability of order details.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-001-003",
+              "name": "Order Fulfillment",
+              "description": "Ensuring orders are picked, packed, and shipped to customers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-002",
+          "name": "Payment Processing",
+          "description": "Managing the collection of payments from customers.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-002-001",
+              "name": "Payment Authorization",
+              "description": "Authorizing customer payment methods.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-002-002",
+              "name": "Payment Settlement",
+              "description": "Settling transactions with financial institutions.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-001-003",
+          "name": "Customer Service",
+          "description": "Providing support and assistance to customers.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-001-003-001",
+              "name": "Customer Inquiry Handling",
+              "description": "Responding to customer questions and issues.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-001-003-002",
+              "name": "Returns and Refunds",
+              "description": "Managing product returns and processing refunds.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Inventory Management",
+      "description": "The process of overseeing and controlling the ordering, storage, and use of components and finished products.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-002-001",
+          "name": "Stock Monitoring",
+          "description": "Tracking inventory levels to ensure sufficient stock.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-001-001",
+              "name": "Inventory Auditing",
+              "description": "Regular checks to reconcile physical stock with system records.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-001-002",
+              "name": "Demand Forecasting",
+              "description": "Predicting future inventory requirements based on historical data.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-002",
+          "name": "Replenishment",
+          "description": "Restocking inventory to meet demand.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-002-001",
+              "name": "Supplier Ordering",
+              "description": "Ordering products from suppliers as needed.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-002-002",
+              "name": "Stock Receiving",
+              "description": "Receiving and checking incoming stock from suppliers.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-002-003",
+          "name": "Inventory Optimization",
+          "description": "Optimizing stock levels to reduce costs and improve service.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-002-003-001",
+              "name": "Safety Stock Management",
+              "description": "Determining optimal safety stock levels.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-002-003-002",
+              "name": "Lead Time Reduction",
+              "description": "Reducing the time between ordering and receiving stock.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Marketing Management",
+      "description": "The process of promoting and selling products or services, including market research and advertising.",
+      "status": "Active",
+      "subprocesses": [
+        {
+          "processId": "PROC-003-001",
+          "name": "Market Research",
+          "description": "Analyzing market trends and customer preferences.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-001-001",
+              "name": "Customer Surveys",
+              "description": "Gathering feedback from customers through surveys.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-001-002",
+              "name": "Competitor Analysis",
+              "description": "Evaluating competitors to understand market position.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-002",
+          "name": "Advertising",
+          "description": "Promoting products through various media channels.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-002-001",
+              "name": "Digital Advertising",
+              "description": "Using online platforms to reach customers.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-002-002",
+              "name": "Print Advertising",
+              "description": "Using printed media to promote products.",
+              "status": "Active"
+            }
+          ]
+        },
+        {
+          "processId": "PROC-003-003",
+          "name": "Promotions",
+          "description": "Creating special offers to boost sales.",
+          "status": "Active",
+          "subprocesses": [
+            {
+              "processId": "PROC-003-003-001",
+              "name": "Discount Campaigns",
+              "description": "Offering discounts to incentivize purchases.",
+              "status": "Active"
+            },
+            {
+              "processId": "PROC-003-003-002",
+              "name": "Loyalty Programs",
+              "description": "Rewarding repeat customers with benefits.",
+              "status": "Active"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "PROC-001-001",
+      "target": "PROC-002-001",
+      "description": "Order Processing depends on accurate stock levels from Stock Monitoring to ensure item availability."
+    },
+    {
+      "source": "PROC-001-002",
+      "target": "PROC-001-001",
+      "description": "Payment Processing must be completed before Order Fulfillment can begin to ensure orders are authorized."
+    },
+    {
+      "source": "PROC-002-001",
+      "target": "PROC-002-002",
+      "description": "Stock Monitoring influences Replenishment decisions to maintain optimal inventory levels."
+    },
+    {
+      "source": "PROC-003-001",
+      "target": "PROC-003-002",
+      "description": "Market Research informs Advertising strategies to target the right audience effectively."
+    },
+    {
+      "source": "PROC-003-003",
+      "target": "PROC-001",
+      "description": "Promotions aim to increase sales, directly impacting the Sales Management process."
+    }
+  ]
+}
