@@ -14,8 +14,10 @@ class Neo4jConnector:
         uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
         user = os.getenv("NEO4J_USER", "neo4j")
         password = os.getenv("NEO4J_PASSWORD", "password")
+        database = os.getenv("NEO4J_DATABASE", "neo4j")
         
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
+        self.database = database
     
     def close(self):
         """Close the Neo4j connection"""
@@ -35,7 +37,7 @@ class Neo4jConnector:
         if params is None:
             params = {}
             
-        with self.driver.session() as session:
+        with self.driver.session(database=self.database) as session:
             result = session.run(query, params)
             return [record for record in result]
     
@@ -50,6 +52,6 @@ class Neo4jConnector:
         Returns:
             Any: Result of the transaction function
         """
-        with self.driver.session() as session:
+        with self.driver.session(database=self.database) as session:
             result = session.execute_write(func, *args, **kwargs)
             return result
