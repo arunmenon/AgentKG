@@ -109,6 +109,22 @@ To see a demonstration of LLM-based knowledge ingestion:
 python AgentKG/src/knowledge_ingestion_demo.py
 ```
 
+#### Populate Process Hierarchies
+
+To populate the Neo4j database with detailed process hierarchies:
+
+1. Install the necessary dependencies:
+```bash
+pip install neo4j python-dotenv openai
+```
+
+2. Run the populate script:
+```bash
+python AgentKG/populate_graph.py
+```
+
+The script will guide you through the process of selecting which domains to populate and whether to clear the existing database first.
+
 #### Database Operations (Requires Neo4j)
 
 Initialize the database schema:
