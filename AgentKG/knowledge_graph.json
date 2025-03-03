@@ -1,0 +1,594 @@
+{
+  "processes": [
+    {
+      "processId": "PROC-001",
+      "name": "Catalog Management",
+      "description": "Top-level process for managing product information",
+      "status": "Active",
+      "parent_process": null,
+      "dependencies": [],
+      "domain": "Retail"
+    },
+    {
+      "processId": "PROC-002",
+      "name": "Pre-Item-Setup",
+      "description": "Process for setting up new items before they go live",
+      "status": "Active",
+      "parent_process": "PROC-001",
+      "dependencies": [],
+      "domain": null
+    },
+    {
+      "processId": "PROC-003",
+      "name": "Item Maintenance",
+      "description": "Process for maintaining existing items",
+      "status": "Active",
+      "parent_process": "PROC-001",
+      "dependencies": [
+        "PROC-002"
+      ],
+      "domain": null
+    },
+    {
+      "processId": "PROC-004",
+      "name": "Pricing Management",
+      "description": "Process for managing product pricing",
+      "status": "Active",
+      "parent_process": "PROC-001",
+      "dependencies": [],
+      "domain": null
+    },
+    {
+      "processId": "PROC-005",
+      "name": "Supply Chain Management",
+      "description": "Process for managing the flow of goods and services",
+      "status": "Active",
+      "parent_process": null,
+      "dependencies": [],
+      "domain": "Retail"
+    },
+    {
+      "processId": "PROC-006",
+      "name": "Inventory Management",
+      "description": "Process for tracking and managing inventory",
+      "status": "Active",
+      "parent_process": "PROC-005",
+      "dependencies": [],
+      "domain": null
+    },
+    {
+      "processId": "PROC-007",
+      "name": "Order Fulfillment",
+      "description": "Process for fulfilling customer orders",
+      "status": "Active",
+      "parent_process": "PROC-005",
+      "dependencies": [
+        "PROC-006"
+      ],
+      "domain": null
+    },
+    {
+      "processId": "PROC-008",
+      "name": "Logistics",
+      "description": "Process for managing transportation and delivery",
+      "status": "Active",
+      "parent_process": "PROC-005",
+      "dependencies": [],
+      "domain": null
+    }
+  ],
+  "agents": [
+    {
+      "agentId": "A001",
+      "name": "Alice",
+      "title": "Senior Catalog Manager",
+      "business_functions": [
+        "Retail Merchandising",
+        "Catalog Management"
+      ],
+      "tech_expertise": [
+        "Data Analysis",
+        "Product Information Management"
+      ],
+      "processes_supported": [
+        {
+          "processId": "PROC-001",
+          "timeAllocated": null
+        }
+      ],
+      "crews": [
+        {
+          "crewId": "CREW-001",
+          "role": "Manager"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0,
+        "efficiency": 0
+      }
+    },
+    {
+      "agentId": "A002",
+      "name": "Bob",
+      "title": "Item Setup Specialist",
+      "business_functions": [
+        "Item Setup",
+        "Data Entry"
+      ],
+      "tech_expertise": [
+        "Database Management",
+        "Data Validation"
+      ],
+      "processes_supported": [
+        {
+          "processId": "PROC-002",
+          "timeAllocated": null
+        }
+      ],
+      "crews": [
+        {
+          "crewId": "CREW-002",
+          "role": "Member"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0,
+        "efficiency": 0
+      }
+    },
+    {
+      "agentId": "A003",
+      "name": "Charlie",
+      "title": "Supply Chain Manager",
+      "business_functions": [
+        "Supply Chain Management",
+        "Logistics Planning"
+      ],
+      "tech_expertise": [
+        "Inventory Systems",
+        "Route Optimization"
+      ],
+      "processes_supported": [
+        {
+          "processId": "PROC-005",
+          "timeAllocated": null
+        }
+      ],
+      "crews": [
+        {
+          "crewId": "CREW-005",
+          "role": "Manager"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0,
+        "efficiency": 0
+      }
+    },
+    {
+      "agentId": "A004",
+      "name": "Diana",
+      "title": "AI Assistant for Pricing",
+      "business_functions": [
+        "Price Analysis",
+        "Competitive Intelligence"
+      ],
+      "tech_expertise": [
+        "Machine Learning",
+        "Price Optimization Algorithms"
+      ],
+      "processes_supported": [
+        {
+          "processId": "PROC-004",
+          "timeAllocated": null
+        }
+      ],
+      "crews": [
+        {
+          "crewId": "CREW-004",
+          "role": "Member"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0,
+        "efficiency": 0
+      }
+    }
+  ],
+  "crews": [
+    {
+      "crewId": "CREW-001",
+      "name": "Catalog Team",
+      "parent_crew": null,
+      "processes_supported": [
+        {
+          "processId": "PROC-001",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-002",
+      "name": "Item Setup Crew",
+      "parent_crew": "CREW-001",
+      "processes_supported": [
+        {
+          "processId": "PROC-002",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-003",
+      "name": "Item Maintenance Crew",
+      "parent_crew": "CREW-001",
+      "processes_supported": [
+        {
+          "processId": "PROC-003",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-004",
+      "name": "Pricing Optimization Crew",
+      "parent_crew": "CREW-001",
+      "processes_supported": [
+        {
+          "processId": "PROC-004",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-005",
+      "name": "Supply Chain Team",
+      "parent_crew": null,
+      "processes_supported": [
+        {
+          "processId": "PROC-005",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-006",
+      "name": "Inventory Control Crew",
+      "parent_crew": "CREW-005",
+      "processes_supported": [
+        {
+          "processId": "PROC-006",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-007",
+      "name": "Fulfillment Crew",
+      "parent_crew": "CREW-005",
+      "processes_supported": [
+        {
+          "processId": "PROC-007",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    },
+    {
+      "crewId": "CREW-008",
+      "name": "Logistics Crew",
+      "parent_crew": "CREW-005",
+      "processes_supported": [
+        {
+          "processId": "PROC-008",
+          "levelOfOwnership": "Primary"
+        }
+      ],
+      "performance_metrics": {
+        "successRate": 0,
+        "tasksCompleted": 0
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "taskId": "TASK-001",
+      "title": "Update product descriptions",
+      "status": "In-Progress",
+      "priority": "High",
+      "process": "PROC-002",
+      "assigned_agents": [
+        "A002"
+      ]
+    },
+    {
+      "taskId": "TASK-002",
+      "title": "Review price changes",
+      "status": "Pending",
+      "priority": "Medium",
+      "process": "PROC-004",
+      "assigned_agents": [
+        "A004"
+      ]
+    },
+    {
+      "taskId": "TASK-003",
+      "title": "Optimize inventory levels",
+      "status": "Completed",
+      "priority": "High",
+      "process": "PROC-006",
+      "assigned_agents": [
+        "A003"
+      ]
+    }
+  ],
+  "performance_records": [
+    {
+      "recordId": "PR-001",
+      "entity_id": "A001",
+      "entity_type": "Agent",
+      "date": "2023-01-15",
+      "metrics": {
+        "tasksCompleted": 95,
+        "successRate": 0.95,
+        "efficiency": 0.9
+      }
+    },
+    {
+      "recordId": "PR-002",
+      "entity_id": "A002",
+      "entity_type": "Agent",
+      "date": "2023-01-15",
+      "metrics": {
+        "tasksCompleted": 85,
+        "successRate": 0.92,
+        "efficiency": 0.88
+      }
+    },
+    {
+      "recordId": "PR-003",
+      "entity_id": "A003",
+      "entity_type": "Agent",
+      "date": "2023-01-15",
+      "metrics": {
+        "tasksCompleted": 150,
+        "successRate": 0.97,
+        "efficiency": 0.95
+      }
+    },
+    {
+      "recordId": "PR-004",
+      "entity_id": "A004",
+      "entity_type": "Agent",
+      "date": "2023-01-15",
+      "metrics": {
+        "tasksCompleted": 300,
+        "successRate": 0.99,
+        "efficiency": 0.98
+      }
+    },
+    {
+      "recordId": "PR-005",
+      "entity_id": "A001",
+      "entity_type": "Agent",
+      "date": "2025-03-03",
+      "metrics": {
+        "tasksCompleted": 120,
+        "successRate": 0.96,
+        "efficiency": 0.92
+      }
+    },
+    {
+      "recordId": "PR-006",
+      "entity_id": "CREW-001",
+      "entity_type": "Crew",
+      "date": "2025-03-03",
+      "metrics": {
+        "tasksCompleted": 500,
+        "successRate": 0.94,
+        "efficiency": 0.91
+      }
+    }
+  ],
+  "business_functions": [
+    {
+      "name": {
+        "name": "Retail Merchandising"
+      }
+    },
+    {
+      "name": {
+        "name": "Catalog Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Item Setup"
+      }
+    },
+    {
+      "name": {
+        "name": "Data Entry"
+      }
+    },
+    {
+      "name": {
+        "name": "Supply Chain Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Logistics Planning"
+      }
+    },
+    {
+      "name": {
+        "name": "Price Analysis"
+      }
+    },
+    {
+      "name": {
+        "name": "Competitive Intelligence"
+      }
+    },
+    {
+      "name": {
+        "name": "Retail Merchandising"
+      }
+    },
+    {
+      "name": {
+        "name": "Catalog Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Item Setup"
+      }
+    },
+    {
+      "name": {
+        "name": "Data Entry"
+      }
+    },
+    {
+      "name": {
+        "name": "Supply Chain Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Logistics Planning"
+      }
+    },
+    {
+      "name": {
+        "name": "Price Analysis"
+      }
+    },
+    {
+      "name": {
+        "name": "Competitive Intelligence"
+      }
+    }
+  ],
+  "tech_expertise": [
+    {
+      "name": {
+        "name": "Data Analysis"
+      }
+    },
+    {
+      "name": {
+        "name": "Product Information Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Database Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Data Validation"
+      }
+    },
+    {
+      "name": {
+        "name": "Inventory Systems"
+      }
+    },
+    {
+      "name": {
+        "name": "Route Optimization"
+      }
+    },
+    {
+      "name": {
+        "name": "Machine Learning"
+      }
+    },
+    {
+      "name": {
+        "name": "Price Optimization Algorithms"
+      }
+    },
+    {
+      "name": {
+        "name": "Data Analysis"
+      }
+    },
+    {
+      "name": {
+        "name": "Product Information Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Database Management"
+      }
+    },
+    {
+      "name": {
+        "name": "Data Validation"
+      }
+    },
+    {
+      "name": {
+        "name": "Inventory Systems"
+      }
+    },
+    {
+      "name": {
+        "name": "Route Optimization"
+      }
+    },
+    {
+      "name": {
+        "name": "Machine Learning"
+      }
+    },
+    {
+      "name": {
+        "name": "Price Optimization Algorithms"
+      }
+    }
+  ],
+  "domains": [
+    {
+      "name": "Retail",
+      "description": "Retail business domain"
+    }
+  ]
+}
