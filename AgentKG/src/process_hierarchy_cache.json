@@ -1,0 +1,50 @@
+{
+  "RETAIL-CATALOG-001": {
+    "name": "Catalog Management",
+    "description": "End-to-end process for managing the retail product catalog"
+  },
+  "RETAIL-CATALOG-001-001": {
+    "name": "Item Setup",
+    "description": "Process for setting up new items in the catalog"
+  },
+  "RETAIL-CATALOG-001-002": {
+    "name": "Item Maintenance",
+    "description": "Process for maintaining and updating existing items"
+  },
+  "RETAIL-CATALOG-001-003": {
+    "name": "Catalog Optimization",
+    "description": "Process for optimizing the catalog structure"
+  },
+  "RETAIL-CATALOG-001-004": {
+    "name": "Catalog Data Quality",
+    "description": "Process for ensuring catalog data quality"
+  },
+  "RETAIL-CATALOG-001-005": {
+    "name": "Catalog Compliance",
+    "description": "Process for ensuring catalog compliance with regulations"
+  },
+  "RETAIL-COMPLIANCE-001": {
+    "name": "Trust and Safety Compliance",
+    "description": "Ensuring retail operations comply with regulations"
+  },
+  "RETAIL-COMPLIANCE-001-001": {
+    "name": "Product Safety Compliance",
+    "description": "Ensuring products meet safety standards"
+  },
+  "RETAIL-COMPLIANCE-001-002": {
+    "name": "Content Moderation",
+    "description": "Reviewing and moderating product content"
+  },
+  "RETAIL-COMPLIANCE-001-003": {
+    "name": "Regulatory Compliance",
+    "description": "Ensuring compliance with regulations"
+  },
+  "RETAIL-COMPLIANCE-001-004": {
+    "name": "Fraud Prevention",
+    "description": "Detecting and preventing fraudulent activities"
+  },
+  "RETAIL-COMPLIANCE-001-005": {
+    "name": "Policy Enforcement",
+    "description": "Enforcing company policies"
+  }
+}
