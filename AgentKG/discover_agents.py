@@ -171,99 +171,87 @@ class GraphRAGAgentDiscovery:
     
     def get_process_context(self, task_description: str) -> List[Dict[str, Any]]:
         """
-        Get process context related to a task description using RAG
+        Get relevant processes for the task and their context, including agent indicators.
         
         Args:
-            task_description (str): Description of the task
+            task_description: Description of the task
             
         Returns:
-            List[Dict[str, Any]]: Related processes with their contexts
+            List of process contexts with agent indicators
         """
-        # Step 1: Fetch processes for each domain from the graph database
-        domain_processes = {}
-        query = """
-        MATCH (p:Process)-[:IN_DOMAIN]->(d:Domain)
+        # First, get all domains and their processes
+        domains_query = """
+        MATCH (d:Domain)-[:CONTAINS_PROCESS]->(p:Process)
         RETURN d.name AS domain, COLLECT(p.name) AS processes
         """
-        results = self.connector.execute_query(query)
-        for result in results:
-            domain_processes[result['domain']] = result['processes']
+        domains = self.connector.execute_query(domains_query)
         
-        # Step 2: Construct the prompt for the LLM
-        domain_processes_str = json.dumps(domain_processes, indent=2)
+        # Format domain information for LLM
+        domain_info = ""
+        for domain in domains:
+            domain_info += f"Domain: {domain['domain']}\n"
+            domain_info += f"Processes: {', '.join(domain['processes'])}\n\n"
+        
+        # Prompt LLM to identify relevant processes
         prompt = f"""
-        Extract the most relevant business processes mentioned or implied in the following task description.
-        For each process, provide its name and the domain it might belong to.
+        Given a task description, identify the most relevant business processes that should be involved.
         
         Task description: {task_description}
         
-        Here are the processes for each domain:
-        {domain_processes_str}
+        Available domains and processes:
+        {domain_info}
         
-        Ground your process candidates to the processes listed above. If the domain is uncertain, use "Unknown" as the value.
-        
-        Format your response as a JSON list of objects, each with 'process_name' and 'domain' keys.
+        Return a comma-separated list of the most relevant process names (max 5) from the available processes.
         """
         
         response = self.client.chat.completions.create(
             model="gpt-4o",
-            response_format={"type": "json_object"},
             messages=[
-                {"role": "system", "content": "You are an expert in business process analysis."},
+                {"role": "system", "content": "You are a business process analyst."},
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            temperature=0.3
         )
         
-        # Step 3: Parse the response
-        try:
-            extracted_processes = json.loads(response.choices[0].message.content)
-            processes = extracted_processes.get("processes", [])
+        process_text = response.choices[0].message.content
+        process_names = [p.strip() for p in process_text.split(",")]
+        
+        # Get detailed context for the identified processes including agent indicators
+        process_contexts = []
+        for process_name in process_names:
+            query = """
+            MATCH (p:Process)
+            WHERE p.name CONTAINS $process_name OR $process_name CONTAINS p.name
+            OPTIONAL MATCH (p)-[:PART_OF]->(parent:Process)
+            OPTIONAL MATCH (child:Process)-[:PART_OF]->(p)
+            OPTIONAL MATCH (p)-[:IN_DOMAIN]->(d:Domain)
+            OPTIONAL MATCH (p)-[:DEPENDS_ON]->(dep:Process)
+            OPTIONAL MATCH (p)<-[:DEPENDS_ON]-(dependent:Process)
             
-            # If no processes were identified, return empty list
-            if not processes:
-                return []
+            // Add agent indicators
+            OPTIONAL MATCH (a:Agent)-[:SUPPORTS]->(p)
+            OPTIONAL MATCH (c:Crew)-[:SUPPORTS]->(p)
+            OPTIONAL MATCH (a2:Agent)-[:MEMBER_OF]->(c)
             
-            # Step 4: Query the graph database for these processes to get more context
-            process_contexts = []
+            RETURN 
+                p.processId AS id,
+                p.name AS name,
+                p.description AS description,
+                parent.name AS parent_process,
+                COLLECT(DISTINCT child.name) AS subprocesses,
+                d.name AS domain,
+                COLLECT(DISTINCT dep.name) AS dependencies,
+                COLLECT(DISTINCT dependent.name) AS dependents,
+                COUNT(DISTINCT a) AS direct_agent_count,
+                COUNT(DISTINCT a2) AS crew_agent_count,
+                COLLECT(DISTINCT a.agentId) as agent_ids,
+                COLLECT(DISTINCT c.crewId) as crew_ids
+            """
             
-            for process_info in processes:
-                process_name = process_info.get("process_name")
-                domain = process_info.get("domain")
-                
-                query = """
-                MATCH (p:Process)
-                WHERE p.name CONTAINS $process_name OR $process_name CONTAINS p.name
-                OPTIONAL MATCH (p)-[:PART_OF]->(parent:Process)
-                OPTIONAL MATCH (child:Process)-[:PART_OF]->(p)
-                OPTIONAL MATCH (p)-[:IN_DOMAIN]->(d:Domain)
-                OPTIONAL MATCH (p)-[:DEPENDS_ON]->(dep:Process)
-                OPTIONAL MATCH (p)<-[:DEPENDS_ON]-(dependent:Process)
-                
-                RETURN 
-                    p.processId AS id,
-                    p.name AS name,
-                    p.description AS description,
-                    parent.name AS parent_process,
-                    COLLECT(DISTINCT child.name) AS subprocesses,
-                    d.name AS domain,
-                    COLLECT(DISTINCT dep.name) AS dependencies,
-                    COLLECT(DISTINCT dependent.name) AS dependents
-                """
-                
-                results = self.connector.execute_query(query, {"process_name": process_name})
-                
-                for result in results:
-                    # If domain from the graph doesn't match the predicted domain and both are known, skip
-                    if result['domain'] and domain != "Unknown" and result['domain'] != domain:
-                        continue
-                        
-                    process_contexts.append(result)
-            
-            return process_contexts
-            
-        except Exception as e:
-            print(f"Error extracting processes: {e}")
-            return []
+            results = self.connector.execute_query(query, {"process_name": process_name})
+            process_contexts.extend(results)
+        
+        return process_contexts
     
     def get_agents_by_graph(self, process_contexts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """
@@ -513,65 +501,61 @@ class GraphRAGAgentDiscovery:
     
     def discover_agents(self, task_description: str) -> Tuple[List[Dict[str, Any]], str]:
         """
-        Main method to discover appropriate agents for a task using GraphRAG
+        Discover agents for a task using GraphRAG approach.
         
         Args:
-            task_description (str): Description of the task
+            task_description: Description of the task
             
         Returns:
-            Tuple[List[Dict[str, Any]], str]: Ranked agents and explanation of the discovery process
+            Tuple of (ranked agents, explanation)
         """
-        process_contexts = []
-        graph_agents = []
-        vector_agents = []
-        explanation = []
-        
-        # Make sure we have indexed agents for vector search
+        # Ensure agents are indexed
         if not self.agent_embeddings:
             self.index_agents()
         
-        # Step 1: Get process context related to the task
+        explanation = []
+        
+        # Step 1: Get process context with agent indicators
         explanation.append("Step 1: Identifying relevant business processes for the task...")
         process_contexts = self.get_process_context(task_description)
         
         if process_contexts:
             process_names = [p['name'] for p in process_contexts]
-            explanation.append(f"Found {len(process_contexts)} relevant processes: {', '.join(process_names)}")
+            agent_counts = sum([p.get('direct_agent_count', 0) for p in process_contexts])
+            crew_agent_counts = sum([p.get('crew_agent_count', 0) for p in process_contexts])
+            
+            explanation.append(
+                f"Found {len(process_contexts)} relevant processes: {', '.join(process_names)}\n" +
+                f"These processes are supported by {agent_counts} direct agents and approximately {crew_agent_counts} agents through crews."
+            )
         else:
-            explanation.append("No specific processes identified for this task.")
+            explanation.append("No specific processes identified. Proceeding with vector search only.")
         
-        # Step 2: Find agents through graph traversal
-        explanation.append("\nStep 2: Finding agents through graph relationships...")
-        graph_agents = self.get_agents_by_graph(process_contexts)
+        # Step 2: Find agents by graph relationships
+        explanation.append("\nStep 2: Finding agents through graph relationships to these processes...")
+        graph_agents = self.get_agents_by_graph(process_contexts) if process_contexts else []
         
         if graph_agents:
-            agent_names = [a['name'] for a in graph_agents[:5]]
-            explanation.append(f"Found {len(graph_agents)} agents through process relationships. Top agents: {', '.join(agent_names)}")
+            agent_names = [a['name'] for a in graph_agents[:3]]
+            explanation.append(f"Found {len(graph_agents)} agents through graph connections, including {', '.join(agent_names[:3])}{' and others.' if len(agent_names) < len(graph_agents) else '.'}")
         else:
-            explanation.append("No agents found through process relationships.")
+            explanation.append("No agents found through direct graph connections.")
         
-        # Step 3: Find agents through vector similarity
+        # Step 3: Find agents by vector similarity
         explanation.append("\nStep 3: Finding agents through semantic similarity...")
         vector_agents = self.get_agents_by_vector_search(task_description)
         
         if vector_agents:
-            agent_names = [f"{a['name']} (similarity: {a['similarity_score']:.2f})" for a in vector_agents[:5]]
-            explanation.append(f"Found {len(vector_agents)} agents through semantic search. Top agents: {', '.join(agent_names)}")
-        else:
-            explanation.append("No agents found through semantic search.")
+            agent_names = [a['name'] for a in vector_agents[:3]]
+            explanation.append(f"Found {len(vector_agents)} agents through semantic similarity, including {', '.join(agent_names[:3])}{' and others.' if len(agent_names) < len(vector_agents) else '.'}")
         
-        # Step 4: Rank agents using LLM reasoning
-        explanation.append("\nStep 4: Ranking agents using contextual reasoning...")
+        # Step 4: Rank agents with LLM
+        explanation.append("\nStep 4: Ranking agents based on context, relationships and relevance...")
         ranked_agents = self.rank_agents_with_llm(task_description, graph_agents, vector_agents, process_contexts)
+        explanation.append(f"Completed agent ranking.")
         
-        if ranked_agents:
-            explanation.append(f"Final ranking complete. Top agent: {ranked_agents[0]['name']} (Score: {ranked_agents[0]['score']})")
-            for agent in ranked_agents[:3]:
-                explanation.append(f"\n{agent['name']} (Score: {agent['score']}): {agent['reasoning']}")
-        else:
-            explanation.append("No suitable agents found for this task.")
-        
-        return ranked_agents, "\n".join(explanation)
+        explanation_text = "\n".join(explanation)
+        return ranked_agents, explanation_text
 
 
 def add_demo_agents():
