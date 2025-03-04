@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentKG - Crew Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: #20232a;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: #61dafb !important;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .card-header {
+            background-color: #f0f8ff;
+            font-weight: bold;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        
+        .btn-primary {
+            background-color: #0078d4;
+            border-color: #0078d4;
+        }
+        
+        .btn-primary:hover {
+            background-color: #005fa9;
+            border-color: #005fa9;
+        }
+        
+        .form-control:focus {
+            border-color: #61dafb;
+            box-shadow: 0 0 0 0.25rem rgba(97, 218, 251, 0.25);
+        }
+        
+        .agent-card {
+            border-left: 4px solid #61dafb;
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .process-badge {
+            background-color: #17a2b8;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .capability-badge {
+            background-color: #6c757d;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        #results-container {
+            display: none;
+        }
+        
+        .spinner-container {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .confidence-meter {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .confidence-value {
+            height: 100%;
+            background-color: #28a745;
+        }
+        
+        .diagram-thumbnail {
+            max-width: 200px;
+            max-height: 150px;
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        #diagram-modal-image {
+            max-width: 100%;
+        }
+        
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+            color: #0078d4;
+            border-bottom: 2px solid #0078d4;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: transparent;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">AgentKG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Crew Analyzer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Process Explorer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agent Registry</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mb-4">Crew Analyzer</h1>
+        <p class="lead">Analyze agent crews from repositories, code, or diagrams to integrate with the AgentKG knowledge graph.</p>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                Analysis Input
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-3" id="inputTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="repo-tab" data-bs-toggle="tab" data-bs-target="#repo-tab-pane" type="button" role="tab" aria-controls="repo-tab-pane" aria-selected="true">Repository</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="code-tab" data-bs-toggle="tab" data-bs-target="#code-tab-pane" type="button" role="tab" aria-controls="code-tab-pane" aria-selected="false">Code Snippet</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="diagram-tab" data-bs-toggle="tab" data-bs-target="#diagram-tab-pane" type="button" role="tab" aria-controls="diagram-tab-pane" aria-selected="false">Diagram</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="inputTabsContent">
+                    <div class="tab-pane fade show active" id="repo-tab-pane" role="tabpanel" aria-labelledby="repo-tab" tabindex="0">
+                        <form id="repo-form">
+                            <div class="mb-3">
+                                <label for="repo-url" class="form-label">Git Repository URL</label>
+                                <input type="text" class="form-control" id="repo-url" name="repoUrl" placeholder="https://github.com/username/repo">
+                                <div class="form-text">Enter the URL of a Git repository containing agent/crew code.</div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="register-repo" name="register">
+                                <label class="form-check-label" for="register-repo">
+                                    Register with AgentKG after analysis
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Analyze Repository</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="code-tab-pane" role="tabpanel" aria-labelledby="code-tab" tabindex="0">
+                        <form id="code-form">
+                            <div class="mb-3">
+                                <label for="code-snippet" class="form-label">Code Snippet</label>
+                                <textarea class="form-control" id="code-snippet" name="code" rows="10" placeholder="Paste your agent/crew code here..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="code-language" class="form-label">Language</label>
+                                <select class="form-select" id="code-language" name="language">
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="typescript">TypeScript</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Analyze Code</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="diagram-tab-pane" role="tabpanel" aria-labelledby="diagram-tab" tabindex="0">
+                        <form id="diagram-form">
+                            <div class="mb-3">
+                                <label for="diagram-upload" class="form-label">Upload Diagram</label>
+                                <input class="form-control" type="file" id="diagram-upload" name="diagram" accept="image/*">
+                                <div class="form-text">Upload an architecture diagram, flow chart, or similar visual representation.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="diagram-description" class="form-label">Description (Optional)</label>
+                                <textarea class="form-control" id="diagram-description" name="description" rows="3" placeholder="Provide additional context about the diagram..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Analyze Diagram</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spinner-container" id="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Analyzing... This may take a minute.</p>
+        </div>
+
+        <div id="results-container">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Analysis Results</span>
+                    <span class="badge bg-success" id="confidence-badge">85% Confidence</span>
+                </div>
+                <div class="card-body">
+                    <h4 id="crew-name">Style Guide Generator Crew</h4>
+                    <p id="crew-description">Multi-agent crew for generating structured, compliant style guides for e-commerce product descriptions across various retail categories and product types.</p>
+                    
+                    <div class="confidence-meter">
+                        <div class="confidence-value" id="confidence-meter" style="width: 85%;"></div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h5>Processes</h5>
+                    <div id="processes-container" class="mb-3">
+                        <span class="badge process-badge">RETAIL-CATALOG-001-001</span>
+                        <span class="badge process-badge">RETAIL-CATALOG-001-002</span>
+                        <span class="badge process-badge">RETAIL-CATALOG-001-003</span>
+                        <span class="badge process-badge">RETAIL-CATALOG-001-004</span>
+                        <span class="badge process-badge">RETAIL-CATALOG-001-005</span>
+                    </div>
+                    
+                    <h5>Capabilities</h5>
+                    <div id="capabilities-container" class="mb-3">
+                        <span class="badge capability-badge">style_guide_generation</span>
+                        <span class="badge capability-badge">content_creation</span>
+                        <span class="badge capability-badge">regulatory_compliance</span>
+                        <span class="badge capability-badge">product_description_standardization</span>
+                        <span class="badge capability-badge">brand_guideline_enforcement</span>
+                    </div>
+                    
+                    <h5>Agents</h5>
+                    <div id="agents-container">
+                        <div class="agent-card">
+                            <h6>Knowledge Aggregator</h6>
+                            <p>Retrieves baseline style guidelines and legal constraints from knowledge sources.</p>
+                            <div>
+                                <small class="text-muted">Capabilities:</small>
+                                <span class="badge capability-badge">data_retrieval</span>
+                                <span class="badge capability-badge">knowledge_integration</span>
+                                <span class="badge capability-badge">database_querying</span>
+                            </div>
+                        </div>
+                        <div class="agent-card">
+                            <h6>Domain Breakdown Agent</h6>
+                            <p>Analyzes domain-level constraints for retail categories.</p>
+                            <div>
+                                <small class="text-muted">Capabilities:</small>
+                                <span class="badge capability-badge">domain_analysis</span>
+                                <span class="badge capability-badge">category_constraints_identification</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="diagrams-container" class="mt-4">
+                        <h5>Diagrams</h5>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <img src="https://via.placeholder.com/200x150" class="diagram-thumbnail" data-bs-toggle="modal" data-bs-target="#diagramModal" alt="Architecture Diagram">
+                                <p><small>Architecture Diagram (0.9 confidence)</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <button class="btn btn-success" id="register-btn">Register with AgentKG</button>
+                        <button class="btn btn-secondary" id="export-btn">Export JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diagram Modal -->
+    <div class="modal fade" id="diagramModal" tabindex="-1" aria-labelledby="diagramModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="diagramModalLabel">Diagram Analysis</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="diagram-modal-image" src="https://via.placeholder.com/800x600" alt="Architecture Diagram">
+                    <div class="mt-3">
+                        <h6>Analysis</h6>
+                        <p id="diagram-analysis-text">This diagram represents a multi-agent workflow with a sequential process flow. The main components include a Knowledge Aggregator, Domain Analyzer, and Content Generator, connected through a central orchestration layer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Demo functionality - in a real implementation, this would connect to the backend API
+        document.getElementById('repo-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const repoUrl = document.getElementById('repo-url').value;
+            if (!repoUrl) {
+                alert('Please enter a repository URL');
+                return;
+            }
+            
+            // Show loading spinner
+            document.getElementById('loading-spinner').style.display = 'block';
+            
+            // Simulate API call with timeout
+            setTimeout(function() {
+                // Hide loading, show results
+                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('results-container').style.display = 'block';
+                
+                // In a real implementation, this would use the actual API response
+            }, 2000);
+        });
+        
+        // Register button functionality
+        document.getElementById('register-btn').addEventListener('click', function() {
+            alert('Crew registered successfully with AgentKG!');
+        });
+        
+        // Export button functionality
+        document.getElementById('export-btn').addEventListener('click', function() {
+            const demoJson = {
+                "crew_metadata": {
+                    "crew_id": "CREW-STYLE-GUIDE",
+                    "name": "Style Guide Generator Crew",
+                    "description": "Multi-agent crew for generating structured, compliant style guides for e-commerce product descriptions across various retail categories and product types",
+                    "process_ids": ["RETAIL-CATALOG-001-001", "RETAIL-CATALOG-001-002", "RETAIL-CATALOG-001-003", "RETAIL-CATALOG-001-004", "RETAIL-CATALOG-001-005"]
+                },
+                "agent_metadata": [
+                    {
+                        "agent_id": "AGENT-STYLE-GUIDE-001",
+                        "name": "Knowledge Aggregator",
+                        "description": "Retrieves baseline style guidelines and legal constraints from knowledge sources",
+                        "capabilities": ["data_retrieval", "knowledge_integration", "database_querying"]
+                    },
+                    {
+                        "agent_id": "AGENT-STYLE-GUIDE-002",
+                        "name": "Domain Breakdown Agent",
+                        "description": "Analyzes domain-level constraints for retail categories",
+                        "capabilities": ["domain_analysis", "category_constraints_identification"]
+                    }
+                ]
+            };
+            
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(demoJson, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "crew_analysis.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        });
+    </script>
+</body>
+</html>
