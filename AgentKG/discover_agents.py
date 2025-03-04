@@ -179,15 +179,30 @@ class GraphRAGAgentDiscovery:
         Returns:
             List[Dict[str, Any]]: Related processes with their contexts
         """
-        # Use LLM to identify key processes from task description
+        # Step 1: Fetch processes for each domain from the graph database
+        domain_processes = {}
+        query = """
+        MATCH (p:Process)-[:IN_DOMAIN]->(d:Domain)
+        RETURN d.name AS domain, COLLECT(p.name) AS processes
+        """
+        results = self.connector.execute_query(query)
+        for result in results:
+            domain_processes[result['domain']] = result['processes']
+        
+        # Step 2: Construct the prompt for the LLM
+        domain_processes_str = json.dumps(domain_processes, indent=2)
         prompt = f"""
         Extract the most relevant business processes mentioned or implied in the following task description.
         For each process, provide its name and the domain it might belong to.
         
         Task description: {task_description}
         
+        Here are the processes for each domain:
+        {domain_processes_str}
+        
+        Ground your process candidates to the processes listed above. If the domain is uncertain, use "Unknown" as the value.
+        
         Format your response as a JSON list of objects, each with 'process_name' and 'domain' keys.
-        If the domain is uncertain, use "Unknown" as the value.
         """
         
         response = self.client.chat.completions.create(
@@ -199,7 +214,7 @@ class GraphRAGAgentDiscovery:
             ]
         )
         
-        # Parse the response
+        # Step 3: Parse the response
         try:
             extracted_processes = json.loads(response.choices[0].message.content)
             processes = extracted_processes.get("processes", [])
@@ -208,7 +223,7 @@ class GraphRAGAgentDiscovery:
             if not processes:
                 return []
             
-            # Query the graph database for these processes to get more context
+            # Step 4: Query the graph database for these processes to get more context
             process_contexts = []
             
             for process_info in processes:
@@ -757,7 +772,6 @@ def add_demo_agents():
     print("Demo agents added successfully!")
     connector.close()
 
-
 def main():
     """Main function for discovering agents for a task"""
     import argparse
@@ -783,7 +797,6 @@ def main():
         print()
     
     discovery.close()
-
 
 if __name__ == "__main__":
     main()
